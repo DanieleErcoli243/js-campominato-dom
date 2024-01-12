@@ -1,0 +1,84 @@
+/* css reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* generici */
+
+body{
+    background-color: aquamarine;
+}
+
+header{
+    height: 70px;
+    line-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+img{
+    display: block;
+    height: 45px;
+    width: 45px;
+}
+
+.container{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0 20px 0;
+}
+
+footer{
+    height: 50px;
+    background-color: white;
+    padding: 20px 0 20px 10px;
+}
+
+
+/* header */
+
+.title,
+form{
+    height: 100%;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0 10px 10px;
+}
+
+form{
+    padding: 0 20px 0 0;
+}
+
+/* griglia */
+
+.grid{
+    width: 1000px;
+    height: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.cell{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell.clicked{
+    background-color: rgb(0, 99, 199);
+}
+
