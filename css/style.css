@@ -72,8 +72,8 @@ form{
 }
 
 #grid .cell{
-    width: calc(100% /var(-cols-per-row));
-    height: calc(100% /var(-cols-per-row));
+    width: calc(100% / var(--cols-per-row));
+    height: calc(100% / var(--cols-per-row));
     border: 1px solid black;
     cursor: pointer;
     display: flex;
