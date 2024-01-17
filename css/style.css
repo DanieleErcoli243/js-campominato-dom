@@ -82,6 +82,7 @@ form{
 }
 
 #grid .cell.clicked{
+    cursor: not-allowed;
     background-color: rgb(0, 99, 199);
 }
 
