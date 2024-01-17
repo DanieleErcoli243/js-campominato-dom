@@ -60,9 +60,9 @@ form{
 
 /* griglia */
 
-.grid{
-    width: 1000px;
-    height: 1000px;
+#grid{
+    width: 80vh;
+    height: 80vh;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
