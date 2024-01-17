@@ -86,7 +86,7 @@ form{
     background-color: rgb(0, 99, 199);
 }
 
-#grid .cell.bomb{
+#grid .cell.clicked.bomb{
     cursor: not-allowed;
     background-color: red;
 }
