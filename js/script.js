@@ -23,6 +23,11 @@ const startGame = event => {
         cell.append (cellNumber + 1);
         return cell;
     }
+
+    const generateBombs = (min, max) => {
+        const bombs = [];
+        
+    }
     
     // cambio il testo nel bottone
     button.innerText = "Rigioca";
@@ -48,11 +53,12 @@ const startGame = event => {
         root.style.setProperty("--cols-per-row", cols);
         const totalCells = rows * cols;
         let score = 0;
+        scoreCounter.innerText = score;
         // genero le celle
         for (let i = 0; i < totalCells; i++){
         const cell = createCell(i);
         
-        // appendo le celle alla griglia
+        
         
         // aggancio al click sulle celle il toggle della classe clicked per colorare le suddette
         cell.addEventListener("click", () => {
@@ -62,6 +68,7 @@ const startGame = event => {
             console.log(i);
             scoreCounter.innerText = ++score;
         });
+        // appendo le celle alla griglia
         grid.appendChild(cell);
     }
 
