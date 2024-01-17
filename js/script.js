@@ -12,7 +12,8 @@ const startGame = event => {
     event.preventDefault();
     // svuoto la griglia
     grid.innerText = "";
-    
+    // creo un flag per determinare la fine del gioco
+    let isGameOver = false;
     // funzioni nel gioco
     // funzione che genera la cella
     const createCell = cellNumber => {
@@ -32,6 +33,24 @@ const startGame = event => {
             
         }
         return bombs;
+    }
+
+    const endGame = (score, hasWon = false) =>{
+        const message = hasWon 
+        ? `Hai vinto. Hai totalizzato ${score} punti` 
+        :`Hai perso. Hai totalizzato ${score} punti`;
+
+        isGameOver = true;    
+        const restart = confirm(message);
+        if (restart) form.submit;
+        revealAllCells();
+    } 
+
+    const revealAllCells = () => {
+        const cells = document.querySelectorAll(".cell");
+        for (let cell of cells) {
+            cell.classList.add("clicked");
+        }
     }
     
     
@@ -62,7 +81,7 @@ const startGame = event => {
         scoreCounter.innerText = score;
 
         // preparo le informazioni utili per le bombe
-        const totalBombs = 16;
+        const totalBombs = 1;
         const maxScore = totalCells -totalBombs;
         const bombs = generateBombs(totalCells, totalBombs)
         console.log(bombs);
@@ -72,13 +91,28 @@ const startGame = event => {
         
         
         
-        // aggancio al click sulle celle il toggle della classe clicked per colorare le suddette
+        // aggancio al click sulle celle l'aggiunta della classe clicked per colorare le suddette
         cell.addEventListener("click", () => {
+           
             // impedisco di ricliccare una cella
-            if (cell.classList.contains("clicked")) return;
+            if (isGameOver || cell.classList.contains("clicked")) return;
             cell.classList.add("clicked");
             console.log(i);
-            scoreCounter.innerText = ++score;
+            // controllo se la cella cliccata sia una bomba
+            const isCellBomb = bombs.includes(i + 1);
+            if(isCellBomb) {
+                cell.classList.add("bomb");
+                endGame (score, false);
+            } else {
+                scoreCounter.innerText = ++score;
+            }
+
+            // controllo se l'utente abbia vinto
+            if (score === maxScore) {
+                endGame (score, true);
+            }
+
+           
         });
         // appendo le celle alla griglia
         grid.appendChild(cell);
