@@ -5,6 +5,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* root properties */
+:root{
+    --var-cols-per-row : 10;
+}
 /* generici */
 
 body{
@@ -67,7 +71,9 @@ form{
     align-content: flex-start;
 }
 
-.cell{
+#grid .cell{
+    width: calc(100% /var(-cols-per-row));
+    height: calc(100% /var(-cols-per-row));
     border: 1px solid black;
     cursor: pointer;
     display: flex;
@@ -77,20 +83,5 @@ form{
 
 #grid .cell.clicked{
     background-color: rgb(0, 99, 199);
-}
-
-#grid.big .cell{
-    width: 10%;
-    height: 10%;
-}
-
-#grid.medium .cell {
-    width: calc(100% / 9);
-    height: calc(100% / 9);
-}
-
-#grid.small .cell{
-    height: calc(100% / 7);
-    width: calc(100% / 7);
 }
 
