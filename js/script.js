@@ -3,7 +3,8 @@ const button = document.getElementById("play");
 const levelChoice = document.getElementById("level");
 const grid = document.getElementById("grid");
 const form = document.querySelector("form");
-// dichiaro le costanti per determinare il numero totale di celle
+const input = document.getElementById("score");
+
 
 
 
@@ -26,12 +27,6 @@ const startGame = event => {
         return cell;
     }
     
-
-    // funzione che cambia il colore della cella ed esegue il console.log del numero della cella 
-    const onCellClicked = event => {
-        // impedisco di ricliccare una cella
-        
-    }
     // cambio il testo nel bottone
     button.innerText = "Rigioca";
     
@@ -55,7 +50,7 @@ const startGame = event => {
     }
     const totalCells = rows * cols;
 
-    
+    let score = 0;
     // genero le celle
     for (let i = 0; i < totalCells; i++){
         const cell = createCell(i);
@@ -64,9 +59,11 @@ const startGame = event => {
         grid.appendChild(cell);
         // aggancio al click sulle celle il toggle della classe clicked per colorare le suddette
         cell.addEventListener("click", () => {
+            // impedisco di ricliccare una cella
             if (cell.classList.contains("clicked")) return;
             cell.classList.add("clicked");
             console.log(i);
+            score++
         });
     }
 
