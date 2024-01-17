@@ -24,10 +24,16 @@ const startGame = event => {
         return cell;
     }
 
-    const generateBombs = (min, max) => {
+    const generateBombs = (maxNumber, totalBombs) => {
         const bombs = [];
-        
+        while (bombs.length < totalBombs) {
+            const randomNumber = Math.floor(Math.random() * maxNumber) + 1;
+            if (!bombs.includes(randomNumber))bombs.push(randomNumber); 
+            
+        }
+        return bombs;
     }
+    
     
     // cambio il testo nel bottone
     button.innerText = "Rigioca";
@@ -54,6 +60,12 @@ const startGame = event => {
         const totalCells = rows * cols;
         let score = 0;
         scoreCounter.innerText = score;
+
+        // preparo le informazioni utili per le bombe
+        const totalBombs = 16;
+        const maxScore = totalCells -totalBombs;
+        const bombs = generateBombs(totalCells, totalBombs)
+        console.log(bombs);
         // genero le celle
         for (let i = 0; i < totalCells; i++){
         const cell = createCell(i);
