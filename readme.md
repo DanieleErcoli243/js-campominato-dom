@@ -1,3 +1,9 @@
+Campo minato DOM
+In this project we copied the layout and the grid from the other project and then added the code to make the game work. 
+Javscript gets 16 random numbers as the bombs. If a bomb is clicked the game ends and all the other bombs are revealed. If the cell is not a bomb, the score increases and when the score gets to its maximum the user wins.
+
+
+
 Ciao ragazzi,
 Esercizio di oggi: Campo Minato
 nome repo: js-campominato-dom
